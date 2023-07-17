@@ -1,0 +1,88 @@
+{
+    "G_kwargs": {
+        "class_name": "training.ce_2class.modules_2class_ce.Generator",
+        "z_dim": 512,
+        "w_dim": 512,
+        "mapping_kwargs": {
+            "num_layers": 2
+        },
+        "channel_base": 32768,
+        "channel_max": 512,
+        "magnitude_ema_beta": 0.9988915792636801
+    },
+    "Ckpt_kwargs": {
+        "class_name": "training.ckpt.Ckpt"
+    },
+    "D_kwargs": {
+        "class_name": "training.ce_2class.modules_2class_ce.Discriminator",
+        "block_kwargs": {
+            "freeze_layers": 0
+        },
+        "mapping_kwargs": {},
+        "epilogue_kwargs": {
+            "mbstd_group_size": 4
+        },
+        "channel_base": 32768,
+        "channel_max": 512
+    },
+    "G_opt_kwargs": {
+        "class_name": "torch.optim.Adam",
+        "betas": [
+            0,
+            0.99
+        ],
+        "eps": 1e-08,
+        "lr": 0.0025
+    },
+    "D_opt_kwargs": {
+        "class_name": "torch.optim.Adam",
+        "betas": [
+            0,
+            0.99
+        ],
+        "eps": 1e-08,
+        "lr": 0.002
+    },
+    "loss_kwargs": {
+        "class_name": "training.ce_2class.loss_2class_ce.DiDiGANLoss",
+        "r1_gamma": 8.2,
+        "fake_clz_val": 0,
+        "pl_weight": 2
+    },
+    "data_loader_kwargs": {
+        "pin_memory": true,
+        "prefetch_factor": 2,
+        "num_workers": 4
+    },
+    "training_set_kwargs": {
+        "class_name": "training.dataset.ADNIDataset",
+        "path": "datasets/view_1_2class",
+        "constraint_res": 64
+    },
+    "num_gpus": 1,
+    "batch_size": 16,
+    "batch_gpu": 16,
+    "total_kimg": 25000,
+    "kimg_per_tick": 4,
+    "image_snapshot_ticks": 10,
+    "random_seed": 0,
+    "ema_kimg": 10.0,
+    "do_ada_aug": true,
+    "augment_kwargs": {
+        "class_name": "training.augment.AugmentPipe",
+        "xflip": 1,
+        "rotate90": 1,
+        "xint": 1,
+        "scale": 1,
+        "rotate": 1,
+        "aniso": 1,
+        "xfrac": 1,
+        "brightness": 1,
+        "contrast": 1,
+        "lumaflip": 1,
+        "hue": 1,
+        "saturation": 1
+    },
+    "ada_target": 0.6,
+    "run_dir": "output/cond"
+}
