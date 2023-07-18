@@ -2,7 +2,6 @@ import numpy as np
 import umap
 import numpy as np
 import torch
-import matplotlib.pyplot as plt
 import cv2
 from tqdm import tqdm
 import numpy as np
@@ -46,10 +45,6 @@ def viz_groups(
         n_neighbors, 
         overlay_points=None
     ):
-    plt.clf()
-    ax = plt.axes()
-    ax.set_facecolor('black')
-    print(f"{n_neighbors=}")
     all_points = []
     segs = []
     count = 0
@@ -78,17 +73,11 @@ def viz_groups(
     for s, e in segs:
         g = (embedding[s:e, 0], embedding[s:e, 1])
         groups.append(g)
-        plt.scatter(*g)
         c = get_center(g)
         c = get_closest_point(c, groupall)
         centres.append(
             c
         )
-        plt.scatter(groupall[0][c], groupall[1][c])
-    if overlay_points is not None:
-        plt.scatter(*group_overlap)
-    
-    plt.axis('off')
     return tuple(centres)
 
 @torch.no_grad()
@@ -202,7 +191,6 @@ def linviz_n_class(
     imageio.mimsave(f'{out_dir}/interp.gif', frames)
     imageio.imsave(f'{out_dir}/f_start.png', frames[0])
     imageio.imsave(f'{out_dir}/f_end.png', frames[-1])
-    plt.savefig(f'{out_dir}/manifold.png')
     return [w.detach().cpu().numpy() for w in w_all], w_inters
 
 def animate_transition(G, c, start, end, pts, text):
