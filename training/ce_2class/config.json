@@ -56,7 +56,7 @@
     },
     "training_set_kwargs": {
         "class_name": "training.dataset.ADNIDataset",
-        "path": "datasets/view_1_2class",
+        "path": "/scratch/itee/uqsliu23/MICCAI2022/didigan-that-works/datasets/view_1_2class",
         "constraint_res": 64
     },
     "num_gpus": 1,
