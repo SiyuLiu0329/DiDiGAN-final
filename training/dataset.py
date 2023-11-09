@@ -11,6 +11,7 @@ class ADNIDataset3Class(torch.utils.data.Dataset):
         self,
         path,
         constraint_res=80,
+        variable_constraint_res=False,
     ):
         self.c_size = constraint_res
         self.constraint_res = constraint_res
@@ -20,6 +21,7 @@ class ADNIDataset3Class(torch.utils.data.Dataset):
         self.name = name
         self.has_labels = True
         self.num_channels = 1
+        self.variable_constraint_res = variable_constraint_res
 
         self._type = "dir"
         self._all_fnames = {

@@ -163,10 +163,10 @@ def linviz_n_class(
     centres = viz_groups(w_all, n_neighbours)
     ws = [w_combined[i] for i in centres]
     frames = []
-    text = f'{"CN" if classes[0] == 0 else "AD"}'
+    text = f"{classes[0]}"
     w_inters = []
     for w1, w2, clz in zip(ws, ws[1:], classes[1:]):
-        text += f'->{"CN" if clz == 0 else "AD"}'
+        text += f"->{clz}"
         imgs, w_inter = animate_transition(G, c, w1, w2, pts, text)
         frames.extend(imgs)
         w_inters.extend(w_inter.detach().cpu().numpy())
