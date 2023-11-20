@@ -1,4 +1,5 @@
 # Disease Disentanglement GAN (DiDiGAN)
+This is the code for the MICCAI 2023 paper [Style-Based Manifold for Weakly-Supervised Disease Characteristic Discovery](https://link.springer.com/chapter/10.1007/978-3-031-43904-9_36).
 
 ## Data
 - [ADNI dataset](https://adni.loni.usc.edu/) (requires registration)
@@ -30,5 +31,36 @@ Note: before running, update the data location in the ``config.json`` files:
 ## TODO:
 - New docker container to include the ``umap-learn`` package
 - More detailed code documentation.
+
+
+## Citation
+
+```
+@InProceedings{10.1007/978-3-031-43904-9_36,
+author="Liu, Siyu
+and Liu, Linfeng
+and Engstrom, Craig
+and To, Xuan Vinh
+and Ge, Zongyuan
+and Crozier, Stuart
+and Nasrallah, Fatima
+and Chandra, Shekhar S.",
+editor="Greenspan, Hayit
+and Madabhushi, Anant
+and Mousavi, Parvin
+and Salcudean, Septimiu
+and Duncan, James
+and Syeda-Mahmood, Tanveer
+and Taylor, Russell",
+title="Style-Based Manifold for Weakly-Supervised Disease Characteristic Discovery",
+booktitle="Medical Image Computing and Computer Assisted Intervention -- MICCAI 2023",
+year="2023",
+publisher="Springer Nature Switzerland",
+address="Cham",
+pages="368--378",
+}
+
+```
+
 
 
